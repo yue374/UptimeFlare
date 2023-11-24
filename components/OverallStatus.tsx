@@ -9,16 +9,14 @@ export default function OverallStatus({
   let statusString = ''
   let icon = <IconAlertCircle style={{ width: 64, height: 64, color: '#b91c1c' }} />
   if (state.overallUp === 0 && state.overallDown === 0) {
-    statusString = 'No data yet'
+    statusString = 'Không có dữ liệu'
   } else if (state.overallUp === 0) {
-    statusString = 'All systems not operational'
+    statusString = 'Các máy chủ đều không hoạt động'
   } else if (state.overallDown === 0) {
-    statusString = 'All systems operational'
-    icon = <IconCircleCheck style={{ width: 64, height: 64, color: '#059669' }} />
+    statusString = ''
+    icon = <IconCircleCheck style={{ width: 128, height: 128, color: '#059669' }} />
   } else {
-    statusString = `Some systems not operational (${state.overallDown} out of ${
-      state.overallUp + state.overallDown
-    })`
+    statusString = `${state.overallDown} trong số ${state.overallUp + state.overallDown} máy chủ không hoạt động`
   }
 
   return (
@@ -28,10 +26,10 @@ export default function OverallStatus({
         {statusString}
       </Title>
       <Title mt="sm" style={{ textAlign: 'center', color: '#70778c' }} order={5}>
-        Last updated on:{' '}
-        {`${new Date(state.lastUpdate * 1000).toLocaleString()} (${
+        Cập nhật vào lúc:{' '}
+        {`${new Date(state.lastUpdate * 1000).toLocaleString('en-GB')} (${
           Math.round(Date.now() / 1000) - state.lastUpdate
-        } sec ago)`}
+        } giây trước)`}
       </Title>
     </>
   )

@@ -56,7 +56,7 @@ export default function MonitorDetail({
         )}
 
         <Text mt="sm" fw={700} style={{ display: 'inline', color: getColor(uptimePercent, true) }}>
-          Overall: {uptimePercent}%
+          Uptime: {uptimePercent}%
         </Text>
       </div>
 

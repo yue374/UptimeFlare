@@ -49,7 +49,7 @@ export default function DetailBar({
         key={i}
         label={
           Number.isNaN(Number(dayPercent)) ? (
-            'No Data'
+            'Không có dữ liệu'
           ) : (
             <>
               <div>{dayPercent + '%'}</div>

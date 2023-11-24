@@ -1,16 +1,13 @@
 const config = {
   // Your locale for server-side callback. (client-side will always follow browser settings)
-  dateLocale: 'zh-CN',
+  dateLocale: 'en-GB',
   // Your timezone for server-side callback. (client-side will always follow browser settings)
-  timezone: 'Asia/Shanghai',
+  timezone: 'Asia/Ho_Chi_Minh',
   page: {
     // Title for your status page
-    title: "lyc8503's Status Page",
+    title: "NextDNS",
     // Links shown at the header of your status page, could set `highlight` to `true`
     links: [
-      { link: 'https://github.com/lyc8503', label: 'GitHub' },
-      { link: 'https://blog.lyc8503.site/', label: 'Blog' },
-      { link: 'mailto:me@lyc8503.site', label: 'Email Me', highlight: true },
     ],
   },
   callback: async (statusChangeMsg: string) => {
@@ -23,42 +20,113 @@ const config = {
   },
   // Define all your monitors here
   monitors: [
-    // Example HTTP Monitor
     {
-      // `id` should be unique, history will be kept if the `id` remains constant
-      id: 'foo_monitor',
-      // `name` is used at status page and callback message
-      name: 'My API Monitor',
-      // `method` should be a valid HTTP Method
-      method: 'POST',
-      // `target` is a valid URL
-      target: 'https://example.com',
-      // [OPTIONAL] `tooltip` is only used at status page to show a tooltip
-      tooltip: 'This is a tooltip for this monitor',
-      // [OPTIONAL] `expectedCodes` is an array of acceptable HTTP response codes, if not specified, default to 2xx
+      id: 'hochiminh-lightnode',
+      name: 'Hồ Chí Minh LightNode',
+      method: 'GET',
+      target: 'https://lightnode-sgn-1.edge.nextdns.io/resolve?name=google.com',
+      tooltip: 'lightnode-sgn-1.edge.nextdns.io',
       expectedCodes: [200],
-      // [OPTIONAL] `timeout` in millisecond, if not specified, default to 10000
-      timeout: 10000,
-      // [OPTIONAL] headers to be sent
       headers: {
-        'User-Agent': 'Uptimeflare',
-        Authorization: 'Bearer YOUR_TOKEN_HERE',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
       },
-      // [OPTIONAL] body to be sent
-      body: 'Hello, world!',
-      // [OPTIONAL] if specified, the response must contains the keyword to be considered as operational.
-      responseKeyword: 'success',
+      timeout: 20000,
     },
-    // Example TCP Monitor
     {
-      id: 'test_tcp_monitor',
-      name: 'Example TCP Monitor',
-      // `method` should be `TCP_PING` for tcp monitors
-      method: 'TCP_PING',
-      // `target` should be `host:port` for tcp monitors
-      target: '1.2.3.4:22',
-      tooltip: 'My production server SSH',
-      timeout: 5000,
+      id: 'hochiminh-greencloud',
+      name: 'Hồ Chí Minh GreenCloud',
+      method: 'GET',
+      target: 'https://greencloud-sgn-1.edge.nextdns.io/resolve?name=google.com',
+      tooltip: 'greencloud-sgn-1.edge.nextdns.io',
+      expectedCodes: [200],
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
+      },
+      timeout: 20000,
+    },
+    {
+      id: 'hanoi-lightnode',
+      name: 'Hà Nội LightNode',
+      method: 'GET',
+      target: 'https://lightnode-han-1.edge.nextdns.io/resolve?name=google.com',
+      tooltip: 'lightnode-han-1.edge.nextdns.io',
+      expectedCodes: [200],
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
+      },
+      timeout: 20000,
+    },
+    {
+      id: 'hanoi-greencloud',
+      name: 'Hà Nội GreenCloud',
+      method: 'GET',
+      target: 'https://greencloud-han-1.edge.nextdns.io/resolve?name=google.com',
+      tooltip: 'greencloud-han-1.edge.nextdns.io',
+      expectedCodes: [200],
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
+      },
+      timeout: 20000,
+    },
+    {
+      id: 'zepto-sin',
+      name: 'Singapore Zepto',
+      method: 'GET',
+      target: 'https://zepto-sin-1.edge.nextdns.io/resolve?name=google.com',
+      tooltip: 'greencloud-han-1.edge.nextdns.io',
+      expectedCodes: [200],
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
+      },
+      timeout: 20000,
+    },
+    {
+      id: 'vultr-sin',
+      name: 'Singapore Vultr',
+      method: 'GET',
+      target: 'https://vultr-sin-1.edge.nextdns.io/resolve?name=google.com',
+      tooltip: 'vultr-sin-1.edge.nextdns.io',
+      expectedCodes: [200],
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
+      },
+      timeout: 20000,
+    },
+    {
+      id: 'anexia-sin',
+      name: 'Singapore Anexia',
+      method: 'GET',
+      target: 'https://anexia-sin-1.edge.nextdns.io/resolve?name=google.com',
+      tooltip: 'anexia-sin-1.edge.nextdns.io',
+      expectedCodes: [200],
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
+      },
+      timeout: 20000,
+    },
+    {
+      id: 'anexia-hkg',
+      name: 'HongKong Anexia',
+      method: 'GET',
+      target: 'https://anexia-hkg-1.edge.nextdns.io/resolve?name=google.com',
+      tooltip: 'anexia-hkg-1.edge.nextdns.io',
+      expectedCodes: [200],
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
+      },
+      timeout: 20000,
+    },
+    {
+      id: 'zepto-hkg',
+      name: 'HongKong Zepto',
+      method: 'GET',
+      target: 'https://zepto-hkg-1.edge.nextdns.io/resolve?name=google.com',
+      tooltip: 'zepto-hkg-1.edge.nextdns.io',
+      expectedCodes: [200],
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
+      },
+      timeout: 20000,
     },
   ],
 }
