@@ -73,7 +73,7 @@ const config = {
       name: 'Singapore Zepto',
       method: 'GET',
       target: 'https://zepto-sin-1.edge.nextdns.io/resolve?name=google.com',
-      tooltip: 'greencloud-han-1.edge.nextdns.io',
+      tooltip: 'zepto-sin-1.edge.nextdns.io',
       expectedCodes: [200],
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
